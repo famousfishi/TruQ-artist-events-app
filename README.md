@@ -1,0 +1,1 @@
+# TruQ-artist-events-app
