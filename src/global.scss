@@ -26,3 +26,14 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+:root{
+    ion-tab-button.tab-selected {
+        ion-icon,
+        ion-label {
+          color: #2D2266 !important;
+          --ion-color-base: #2D2266 !important;
+        }
+      }
+}

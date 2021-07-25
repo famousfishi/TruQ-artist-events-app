@@ -1,9 +1,68 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>search-events</ion-title>
+    <ion-searchbar debounce="500" color="light" (ionChange)="searchUpComingEvents($event)" placeholder="Enter artist name..."></ion-searchbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
 
+          <ion-list *ngIf="eventsData.length > 0">
+            <img class="animate__animated animate__flipInX" [src]="eventsData[0].artist.image_url" />
+
+            <ion-item *ngFor="let item of eventsData"  >
+              <ion-thumbnail style="margin-right: 20px;">
+                <!-- <img [src]="item.artist.image_url" alt={{item.title}}/> -->
+              </ion-thumbnail>
+              <ion-label>
+                <h4>{{item.title}}</h4>
+                <ion-text>
+                  <p style="color:#BD1B2B">{{item.venue.country}}</p>
+                </ion-text>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+
+        <!--show skeleton text-->
+        <ion-list *ngIf="showSkeleton">
+          <ion-item *ngFor="let d of [].constructor(5)">
+            <ion-thumbnail>
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-thumbnail>
+            <ion-label>
+              <h4>              
+                <ion-skeleton-text animated style="width: 60%;"></ion-skeleton-text>
+              </h4>
+              <ion-text>
+                <p>              
+                  <ion-skeleton-text animated style="width: 40%;"></ion-skeleton-text>
+                </p>
+              </ion-text>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+
+
+        <!--first data display on load-->
+        <ion-list *ngIf="showNoDataOnFirstLoad" lines="none">
+          <ion-item>
+            <!-- <ion-label> -->
+              <h3>Want to see your favourite artists upcoming events? Type in the search above </h3>
+            <!-- </ion-label> -->
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <!-- <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMore($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more events...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll> -->
+
+  </ion-grid>
 </ion-content>
