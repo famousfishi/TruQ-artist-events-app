@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class EnvService {
-  BASE_API_URL = "https://app.swaggerhub.com/apis/Bandsintown/PublicAPI/3.0.0/";
+  BASE_API_URL = "https://rest.bandsintown.com/";
 
 
   constructor() { }
