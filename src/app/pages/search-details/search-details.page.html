@@ -8,5 +8,25 @@
 </ion-header>
 
 <ion-content>
-  {{id}}
+
+  <img class="animate__animated animate__zoomInUp"
+						src="../../../assets/images/Listening happy music-bro.svg" alt="event detail image">
+  <ion-card class="description-card">
+
+    <ion-card-header>
+      {{title}}
+    </ion-card-header>
+    <ion-card-content>
+        <h3 style="font-weight: 900;">Date of Event:{{dateOfEvent | date}} </h3>
+
+
+        <ion-text>
+          Venue: <br/><br/>
+          City: {{venue.city}} <br/>
+          Country: {{venue.country}} <br/>
+          Location: {{venue.location}} <br/>
+          Venue Name: {{venue.name}}
+        </ion-text>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
