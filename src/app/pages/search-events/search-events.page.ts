@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 import { Events } from 'src/app/interfaces/events';
 import { EventsService } from 'src/app/services/events.service';
 
@@ -15,7 +16,7 @@ export class SearchEventsPage implements OnInit {
 
   showNoDataOnFirstLoad: boolean = true;
 
-  constructor(private eventService: EventsService) { }
+  constructor(private eventService: EventsService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -31,6 +32,18 @@ export class SearchEventsPage implements OnInit {
       this.eventsData = data;
       console.log(this.eventsData.length); 
     })
+  }
+
+  goToEventDetail(item: any){
+    console.log(item);
+    let navigationExtras: NavigationExtras = {
+      state: {
+        eventDetail: item
+      }
+    }
+
+    this.router.navigate(['search-details'], navigationExtras);
+    // this.router.navigate([`/search-details/${id}`]);
   }
 
 }

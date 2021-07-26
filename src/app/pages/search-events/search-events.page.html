@@ -15,7 +15,7 @@
           <ion-list *ngIf="eventsData.length > 0">
             <img class="animate__animated animate__flipInX" [src]="eventsData[0].artist.image_url" />
 
-            <ion-item *ngFor="let item of eventsData"  >
+            <ion-item *ngFor="let item of eventsData"  (click)="goToEventDetail(item)">
               <ion-thumbnail style="margin-right: 20px;">
                 <!-- <img [src]="item.artist.image_url" alt={{item.title}}/> -->
               </ion-thumbnail>
@@ -25,6 +25,8 @@
                   <p style="color:#BD1B2B">{{item.venue.country}}</p>
                 </ion-text>
               </ion-label>
+              <ion-icon style="margin-left: auto; color:#2D2266; " name="arrow-forward-outline"></ion-icon>
+
             </ion-item>
           </ion-list>
 
