@@ -16,6 +16,8 @@ export class SearchEventsPage implements OnInit {
 
   showNoDataOnFirstLoad: boolean = true;
 
+  showNoUpcomingEvents: boolean = false;
+
   constructor(private eventService: EventsService, private router: Router) { }
 
   ngOnInit() {
@@ -31,6 +33,11 @@ export class SearchEventsPage implements OnInit {
 
       this.eventsData = data;
       console.log(this.eventsData.length); 
+      if (this.eventsData.length == 0) {
+        this.showNoUpcomingEvents = true;
+      }else{
+        this.showNoUpcomingEvents = false;
+      }
     })
   }
 

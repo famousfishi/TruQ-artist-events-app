@@ -49,6 +49,10 @@
           </ion-item>
         </ion-list>
 
+        <!--Show no upcoming events-->
+        <ion-item *ngIf="showNoUpcomingEvents">
+          No Upcoming Events for this artist
+        </ion-item>
 
         <!--first data display on load-->
         <ion-list *ngIf="showNoDataOnFirstLoad" lines="none">
