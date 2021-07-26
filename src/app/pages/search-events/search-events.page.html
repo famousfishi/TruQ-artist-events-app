@@ -18,6 +18,7 @@
             <ion-item *ngFor="let item of eventsData"  (click)="goToEventDetail(item)">
               <ion-thumbnail style="margin-right: 20px;">
                 <!-- <img [src]="item.artist.image_url" alt={{item.title}}/> -->
+                <img src="https://via.placeholder.com/150" class="image-detail"/>
               </ion-thumbnail>
               <ion-label>
                 <h4>{{item.title}}</h4>
@@ -50,7 +51,7 @@
         </ion-list>
 
         <!--Show no upcoming events-->
-        <ion-item *ngIf="showNoUpcomingEvents">
+        <ion-item *ngIf="showNoUpcomingEvents" style="color: #BD1B2B; font-weight: 700;">
           No Upcoming Events for this artist
         </ion-item>
 
